@@ -25,7 +25,7 @@ def create(request):
 def view(request, pk):
     data = {}
     data['db'] = Produtos.objects.get(pk=pk)
-    return render(request, 'view.html')
+    return render(request, 'view.html', data)
 
 
 def edit(request, pk):
