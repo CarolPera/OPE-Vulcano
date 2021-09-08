@@ -1,8 +1,8 @@
-<h1 align="center"> OPE-Vulcano
+<h1 align="center"> OPE-Vulcano </h1>
 <div align="center"><img height="150em" width="150em" src="https://down.imgspng.com/download/0720/volcano_PNG22.png"/></div> 
 
 
-## <h3> Sobre:
+<h3> Sobre: </h3>
 
 - Sistema de controle de fluxo de caixa e estoque para auxiliar microemprendedores;
 - OPE: Oficiona Projeto Empresa, equivale ao trabalho de conclusão de curso da Faculdade Impacta.
