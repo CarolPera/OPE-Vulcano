@@ -14,13 +14,14 @@
 - <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML">HTML</a>
 - <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS">CSS</a>
 - <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript">JavaScript</a>
-- <a href="https://github.com/sqlitebrowser/sqlitebrowser/wiki">SQLite</a>
+- <a href="https://www.mysql.com/">MySQL</a>
 
 ## <h3> Abrir o projeto e subir local:
 
 - 1º : No CMD criar a maquina virtual dentro da pasta do projeto (OPE-Vulcano) -> `python -m venv venv`
 - 2º : Ir até a pasta `Scripts` dentro da pasta `venv`-> `cd venv/Scripts` depois ativar a venv-> `activate`
 - 3º : Voltar a raiz do projeto -> 2x `cd ..` e instalar o Django -> `pip install django`
+- 3º : Voltar a raiz do projeto -> 2x `cd ..` e instalar o Django -> `pip install mysqlclient-1.4.6-cp39-cp39-win_amd64.whl`
 - 4º : Fazer a migração do banco de dados caso tenha atualizações pendentes -> `python manage.py migrate`
 - 5º : Rodar o servidor local -> `python manage.py runserver`
 - 6º : Acessar a url `localhost:8000`
