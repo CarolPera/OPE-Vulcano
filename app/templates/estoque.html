@@ -1,0 +1,87 @@
+
+<html>
+    <head>
+        <title>Cardapio</title>
+    </head>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <body>
+        <nav id="menu">
+            <ul>
+                <li>
+                   <a href="cardapio.html"> Cardapio </a>
+                </li>
+                <li>
+                    <a href="estoque.html"> Estoque </a>
+                </li>
+                <li>
+                    <a href="index.html"> VULCANO </a>
+                 </li>
+                 <li>
+                    <a href="cadastro.html"> Cadastro  </a>
+                 </li>
+                 <li>
+                    <a href="visualizcao.html"> Editar  </a>
+                 </li>
+            </ul>
+        </nav>
+        <div id="cardapio">
+            
+            </div> 
+        </div>
+    </body>
+</html> 
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Estoque</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="col-8 m-auto pt-2 pb-2 text-center">
+        <h1>Produtos em Estoque</h1>
+    </div>
+
+    <div class="col-8 m-auto pt-3 pb-2 text-center">
+        <a href="/form" class="btn btn-success">Adicionar</a>
+    </div>
+
+    <div class="col-8 m-auto pt-4 pb-2 text-center">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome </th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Quantidade</th>
+                <th scope="col">Data de Vencimento</th>
+                <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for dbs in db %}
+            <tr>
+                <th>{{dbs.id}}</th>
+                <td>{{dbs.nome_produto}}</td>
+                <td>{{dbs.categoria_produto}}</td>
+                <td>{{dbs.quant_produto}}</td>
+                <td>{{dbs.data_vencimento}}</td>
+                <td>
+                  <a href="/view/{{dbs.id}}/" class="btn btn-dark">Abrir</a>
+                  <a href="/edit/{{dbs.id}}/" class="btn btn-primary">Edit</a>
+                  <a href="/delete/{{dbs.id}}/" class="btn btn-danger">Del</a>
+              </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+    </div>
+</body>
+</html>

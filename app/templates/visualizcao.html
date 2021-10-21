@@ -23,16 +23,19 @@
                  </li>
             </ul>
         </nav>
-        <div id="cardapio">
-            <div id="item">
-                <h2>Seja bem vindo</h2>
-                <img src="./img/vulcao.jpg">
-                <p>Bem-vindo ao Vulcano,seu site de controle de estoques <br>
-                Aqui você pode gerenciar seu estoque,acrescentando e visualizando <br>
-                 tudo de forma eficiente e rápida.
-                </p>
-                <h1>Vulcano</h1>
-                
-            </div>
-        </body>
-    </html>
+    <div class="col-8 m-auto pt-2 pb-2 text-center">
+        <h1>Visualização</h1>
+    </div>
+
+    <div class="col-8 m-auto pt-3 pb-2 text-center">
+        <a href="/" class="btn btn-info">Voltar</a>
+    </div>
+
+    <div class="col-8 m-auto pt-4 pb-2 text-center">
+        <strong>Nome: </strong>{{db.nome_produto}}<br>
+        <strong>Categoria: </strong>{{db.categoria_produto}}<br>
+        <strong>Quantidade: </strong>{{db.quant_produto}}<br>
+        <strong>Data de Vencimento: </strong>{{db.data_vencimento}}<br>
+    </div>
+</body>
+</html>
