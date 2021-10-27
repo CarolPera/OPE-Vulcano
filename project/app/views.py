@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from app.forms import ProdutosForm
-from app.models import Produtos
+from project.app.forms import ProdutosForm
+from project.app.models import Produtos
 
 
 def home(request):
