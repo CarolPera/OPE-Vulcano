@@ -22,27 +22,25 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nome </th>
-                <th scope="col">Categoria</th>
-                <th scope="col">Quantidade</th>
-                <th scope="col">Data de Vencimento</th>
+                <th scope="col">Estoque</th>
+                <th scope="col">Minimo</th>
                 <th scope="col">Ações</th>
             </tr>
           </thead>
           <tbody>
-          {% for dbs in db %}
             <tr>
                 <th>{{dbs.id}}</th>
                 <td>{{dbs.nome_produto}}</td>
-                <td>{{dbs.categoria_produto}}</td>
-                <td>{{dbs.quant_produto}}</td>
-                <td>{{dbs.data_vencimento}}</td>
+                <td>{{dbs.estoque}}</td>
+                <td>{{dbs.estoque_minimo}}</td>
                 <td>
                   <a href="/view/{{dbs.id}}/" class="btn btn-dark">Abrir</a>
                   <a href="/edit/{{dbs.id}}/" class="btn btn-primary">Edit</a>
                   <a href="/delete/{{dbs.id}}/" class="btn btn-danger">Del</a>
+                  <a href="/add/{{dbs.id}}/" class="btn btn-danger">add</a>
+                  <a href="/remove/{{dbs.id}}/" class="btn btn-danger">remove</a>
               </td>
             </tr>
-          {% endfor %}
           </tbody>
         </table>
     </div>

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from app.forms import ProdutosForm
+from app.forms import ProdutosForm, Estoque
 from app.models import Produtos
 
 
@@ -48,3 +48,23 @@ def delete(request, pk):
     db = Produtos.objects.get(pk=pk)
     db.delete()
     return redirect('home')
+
+def addProduto(request, pk, quantidade):
+    if request.method == 'PUT':
+        data = {}
+        data['db'] = Produtos.objects.get(pk=pk)
+        form = ProdutosForm(request.POST or None, instance=data['db'])
+        if form.is_valid():
+            form.estoque += quantidade
+            form.save()
+    return redirect('home')
+
+
+
+def removeProduto(request, pk):
+    data = {}
+    data['db'] = Produtos.objects.get(pk=pk)
+    form = ProdutosForm(request.POST or None, instance=data['db'])
+    if form.is_valid():
+        form.save()
+        return redirect('home')

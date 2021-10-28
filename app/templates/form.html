@@ -20,9 +20,8 @@
         <form name="form" id="form" action="{% if db %}/update/{{db.id}}/{%else%}/create/{% endif %}" method="post">
             {% csrf_token %}
             <div class="form-group mt-4">Nome: {{form.nome_produto}}</div>
-            <div class="form-group mt-4">Categoria: {{form.categoria_produto}}</div>
-            <div class="form-group mt-4">Quantidade: {{form.quant_produto}}</div>
-            <div class="form-group mt-4">Vencimento: {{form.data_vencimento}}</div>
+            <div class="form-group mt-4">Estoque: {{form.categoria_produto}}</div>
+            <div class="form-group mt-4">Estoque minimo: {{form.quant_produto}}</div>
             <input type="submit" class="btn btn-success" value="Salvar">
         </form>
     </div>
