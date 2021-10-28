@@ -11,4 +11,4 @@ class ProdutosForm(ModelForm):
 class Estoque(ModelForm):
     class Meta:
         model = Produtos
-        fields = ['estoque']
+        fields = ['nome_produto','estoque']
