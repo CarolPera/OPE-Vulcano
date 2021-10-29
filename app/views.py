@@ -55,9 +55,9 @@ def addProduto(request, pk, quantidade):
 
 def addEdit(request, pk):
     data = {}
-        data['db'] = Produtos.objects.get(pk=pk)
-        data['form'] = ProdutosForm(instance=data['db'])
-        return render(request, 'formAdd.html', data)
+    data['db'] = Produtos.objects.get(pk=pk)
+    data['form'] = ProdutosForm(instance=data['db'])
+    return render(request, 'formAdd.html', data)
 
 
 def removeProduto(request, pk, quantidade):
@@ -65,14 +65,14 @@ def removeProduto(request, pk, quantidade):
             db = Produtos.objects.get(pk=pk)
             db.estoque -= quantidade
             db.save()
-        return redirect('home')
+    return redirect('home')
 
 
 def removeEdit(request, pk):
     data = {}
-        data['db'] = Produtos.objects.get(pk=pk)
-        data['form'] = ProdutosForm(instance=data['db'])
-        return render(request, 'formRemove.html', data)
+    data['db'] = Produtos.objects.get(pk=pk)
+    data['form'] = ProdutosForm(instance=data['db'])
+    return render(request, 'formRemove.html', data)
 
 
 def delete(request, pk):
