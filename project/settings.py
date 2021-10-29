@@ -75,15 +75,15 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'vulcano',
-        'PORT': '3306',
-        'HOST': 'localhost',
-        'USER': 'root',
-        'PASSWORD': '',
-        'OPTIONS': {
-            'init_command': 'SET default_storage_engine=InnoDB',
+'default': {
+'ENGINE': 'django.db.backends.mysql',
+'NAME': "testa",
+'HOST': 'localhost',
+'USER': 'root',
+'PASSWORD': '',
+'PORT': '3306',
+'OPTIONS': {
+    'init_command': 'SET default_storage_engine=InnoDB',
         }
     }
 }

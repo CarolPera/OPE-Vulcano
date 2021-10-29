@@ -1,87 +1,141 @@
-
-<html>
-    <head>
-        <title>Cardapio</title>
-    </head>
-    <link rel="stylesheet" type="text/css" href="styles/styles.css">
-    <body>
-        <nav id="menu">
-            <ul>
-                <li>
-                   <a href="cardapio.html"> Cardapio </a>
-                </li>
-                <li>
-                    <a href="estoque.html"> Estoque </a>
-                </li>
-                <li>
-                    <a href="index.html"> VULCANO </a>
-                 </li>
-                 <li>
-                    <a href="cadastro.html"> Cadastro  </a>
-                 </li>
-                 <li>
-                    <a href="visualizcao.html"> Editar  </a>
-                 </li>
-            </ul>
-        </nav>
-        <div id="cardapio">
-            
-            </div> 
-        </div>
-    </body>
-</html> 
-
-
-
-
-
 <!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
+<html lang="en" dir="ltr">
+  <head>
     <meta charset="UTF-8">
-    <title>Estoque</title>
+    <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
+    <link rel="stylesheet" href="styyle.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
-
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
 <body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bxs-rocket'></i>
+        <div class="logo_name">Vulcano</div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+          <i class='bx bx-search' ></i>
+         <input type="text" placeholder="Pesquisar...">
+         <span class="tooltip">Pesquisar</span>
+      </li>
+      <li>
+        <a href="cardapio.html">
+        <i class='bx bxs-food-menu'></i>
+          <span class="links_name">Cárdapio</span>
+        </a>
+         <span class="tooltip">Cárdapio</span>
+      </li>
+     <li>
+       <a href="estoque.html">
+         <i class='bx bx-pie-chart-alt-2' ></i>
+         <span class="links_name">Estoque</span>
+       </a>
+       <span class="tooltip">Estoque</span>
+     </li>
+     
+     <li>
+       <a href="carrinho.html">
+         <i class='bx bx-cart-alt' ></i>
+         <span class="links_name">Carrinho</span>
+       </a>
+       <span class="tooltip">Carrinho</span>
+     </li>
+     <li>
+        <a href="cadastro.html">
+        <i class='bx bx-plus-circle'></i>
+          <span class="links_name">Cadastrar Produto</span>
+        </a>
+        <span class="tooltip">Cadastrar Produto</span>
+      </li>
+      <li>
+        <a href="visualizcao.html">
+          <i class='bx bx-show'></i>
+            <span class="links_name">Visualizar produto</span>
+          </a>
+          <span class="tooltip">Visualizar produto</span>
+        </li>
+     <li class="profile">
+         <div class="profile-details">
+           <img src="img/vulcao.png" alt="profileImg">
+             <div class="name">Doce Guetto
+           </div>
+         </div>
+         <a href="#">
+         <i class='bx bx-log-out' id="log_out" ></i>
+         <span class="links_name">Sair</span>
+        </a>
+        <span class="tooltip">Sair</span>
+      </li>
+     </li>
+    </ul>
+  </div>
+  <section class="home-section">
     <div class="col-8 m-auto pt-2 pb-2 text-center">
-        <h1>Produtos em Estoque</h1>
-    </div>
+      <h1>Produtos em Estoque</h1>
+  </div>
+<div class="col-8 m-auto pt-3 pb-2 text-center">
+      <a href="/form" class="btn btn-success">Adicionar</a>
+  </div>
 
-    <div class="col-8 m-auto pt-3 pb-2 text-center">
-        <a href="/form" class="btn btn-success">Adicionar</a>
-    </div>
+  <div class="col-8 m-auto pt-4 pb-2 text-center">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nome </th>
+              <th scope="col">Categoria</th>
+              <th scope="col">Quantidade</th>
+              <th scope="col">Data de Vencimento</th>
+              <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for dbs in db %}
+          <tr>
+              <th>{{dbs.id}}</th>
+              <td>{{dbs.nome_produto}}</td>
+              <td>{{dbs.categoria_produto}}</td>
+              <td>{{dbs.quant_produto}}</td>
+              <td>{{dbs.data_vencimento}}</td>
+              <td>
+                <a href="/view/{{dbs.id}}/" class="btn btn-dark">Abrir</a>
+                <a href="/edit/{{dbs.id}}/" class="btn btn-primary">Edit</a>
+                <a href="/delete/{{dbs.id}}/" class="btn btn-danger">Del</a>
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+  </div>
+  </section>
+  <script>
+  let sidebar = document.querySelector(".sidebar");
+  let closeBtn = document.querySelector("#btn");
+  let searchBtn = document.querySelector(".bx-search");
 
-    <div class="col-8 m-auto pt-4 pb-2 text-center">
-        <table class="table">
-          <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome </th>
-                <th scope="col">Categoria</th>
-                <th scope="col">Quantidade</th>
-                <th scope="col">Data de Vencimento</th>
-                <th scope="col">Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-          {% for dbs in db %}
-            <tr>
-                <th>{{dbs.id}}</th>
-                <td>{{dbs.nome_produto}}</td>
-                <td>{{dbs.categoria_produto}}</td>
-                <td>{{dbs.quant_produto}}</td>
-                <td>{{dbs.data_vencimento}}</td>
-                <td>
-                  <a href="/view/{{dbs.id}}/" class="btn btn-dark">Abrir</a>
-                  <a href="/edit/{{dbs.id}}/" class="btn btn-primary">Edit</a>
-                  <a href="/delete/{{dbs.id}}/" class="btn btn-danger">Del</a>
-              </td>
-            </tr>
-          {% endfor %}
-          </tbody>
-        </table>
-    </div>
+  closeBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("open");
+    menuBtnChange();//calling the function(optional)
+  });
+
+  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+    sidebar.classList.toggle("open");
+    menuBtnChange(); //calling the function(optional)
+  });
+
+  // following are the code to change sidebar button(optional)
+  function menuBtnChange() {
+   if(sidebar.classList.contains("open")){
+     closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+   }else {
+     closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+   }
+  }
+  </script>
 </body>
-</html>
+</html> 
+ 
