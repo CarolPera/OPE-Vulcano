@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="{% static 'styles/styyle.css' %}">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -59,15 +62,19 @@
     </ul>
 </div>
 <section class="home-section">
-    <div id="carrinho">
-        <div id="item">
-            <h2>Seja bem-vindo</h2>
-            <img src="{% static 'img/vulcao.jpg' %}">
-            <p>Bem-vindo ao Vulcano, seu site de controle de estoques <br>
-                Aqui você pode gerenciar seu estoque, agilizando processos, <br>
-                tendo uma visibilidade de forma eficiente e eficaz.
-            </p>
-        </div>
+    <div class="col-8 m-auto pt-2 pb-2 text-center">
+        <h1>Visualização</h1>
+    </div>
+
+    <div class="col-8 m-auto pt-3 pb-2 text-center">
+        <a href="/estoque/" class="btn btn-primary">Voltar</a>
+    </div>
+
+    <div class="col-8 m-auto pt-4 pb-2 text-center">
+        <strong>Nome: </strong>{{db.nome_produto}}<br>
+        <strong>Categoria: </strong>{{db.categoria_produto}}<br>
+        <strong>Quantidade: </strong>{{db.quant_produto}}<br>
+        <strong>Data de Vencimento: </strong>{{db.data_vencimento}}<br>
     </div>
 </section>
 <script>

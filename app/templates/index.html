@@ -1,91 +1,77 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en" dir="ltr">
-  <head>
-      <meta charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
     <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
     <link rel="stylesheet" href="{% static 'styles/styyle.css' %}">
     <link rel="stylesheet" href="{% static 'styles/stylee.css' %}">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 <body>
-  <div class="sidebar">
+<div class="sidebar">
     <div class="logo-details">
-      <i class='bx bxs-rocket'></i>
+        <i class='bx bxs-rocket'></i>
         <div class="logo_name">Vulcano</div>
-        <i class='bx bx-menu' id="btn" ></i>
+        <i class='bx bx-menu' id="btn"></i>
     </div>
     <ul class="nav-list">
-      <li>
-          <i class='bx bx-search' ></i>
-         <input type="text" placeholder="Pesquisar...">
-         <span class="tooltip">Pesquisar</span>
-      </li>
-      <li>
-        <a href="cardapio.html">
-        <i class='bx bxs-food-menu'></i>
-          <span class="links_name">Cárdapio</span>
-        </a>
-         <span class="tooltip">Cárdapio</span>
-      </li>
-     <li>
-       <a href="estoque.html">
-         <i class='bx bx-pie-chart-alt-2' ></i>
-         <span class="links_name">Estoque</span>
-       </a>
-       <span class="tooltip">Estoque</span>
-     </li>
-     
-     <li>
-       <a href="carrinho.html">
-         <i class='bx bx-cart-alt' ></i>
-         <span class="links_name">Carrinho</span>
-       </a>
-       <span class="tooltip">Carrinho</span>
-     </li>
-     <li>
-        <a href="cadastro.html">
-        <i class='bx bx-plus-circle'></i>
-          <span class="links_name">Cadastrar Produto</span>
-        </a>
-        <span class="tooltip">Cadastrar Produto</span>
-      </li>
-      <li>
-        <a href="visualizcao.html">
-          <i class='bx bx-show'></i>
-            <span class="links_name">Visualizar produto</span>
-          </a>
-          <span class="tooltip">Visualizar produto</span>
+        <li>
+            <i class='bx bx-search'></i>
+            <input type="text" placeholder="Pesquisar...">
+            <span class="tooltip">Pesquisar</span>
         </li>
-     <li class="profile">
-         <div class="profile-details">
-           <img src="img/vulcao.png" alt="profileImg">
-             <div class="name">Doce Guetto
-           </div>
-         </div>
-         <a href="#">
-         <i class='bx bx-log-out' id="log_out" ></i>
-         <span class="links_name">Sair</span>
-        </a>
-        <span class="tooltip">Sair</span>
-      </li>
-     </li>
+        <li>
+            <a href="/cardapio/">
+                <i class='bx bxs-food-menu'></i>
+                <span class="links_name">Cárdapio</span>
+            </a>
+            <span class="tooltip">Cárdapio</span>
+        </li>
+        <li>
+            <a href="/estoque/">
+                <i class='bx bx-pie-chart-alt-2'></i>
+                <span class="links_name">Estoque</span>
+            </a>
+            <span class="tooltip">Estoque</span>
+        </li>
+
+        <li>
+            <a href="carrinho.html">
+                <i class='bx bx-cart-alt'></i>
+                <span class="links_name">Carrinho</span>
+            </a>
+            <span class="tooltip">Carrinho</span>
+        </li>
+        <li class="profile">
+            <div class="profile-details">
+                <img src="{% static 'img/vulcao.png' %}" alt="profileImg">
+                <div class="name">Doce Guetto
+                </div>
+            </div>
+            <a href="#">
+                <i class='bx bx-log-out' id="log_out"></i>
+                <span class="links_name">Sair</span>
+            </a>
+            <span class="tooltip">Sair</span>
+        </li>
     </ul>
-  </div>
-  <section class="home-section">
-    <div id="cardapio">
-      <div id="item">
-          <h2>Seja bem-vindo</h2>
-          <img src="{% static '/img/vulcao.jpg' %}">
-          <p>Bem-vindo ao Vulcano, seu site de controle de estoques 
-            Aqui você pode gerenciar seu estoque, agilizando processos,  <br>
-            tendo uma visibilidade de forma eficiente e eficaz.
-          </p>
-      </div>
-  </section>
-  <script>
+</div>
+<section class="home-section">
+    <div id="home">
+        <div id="item">
+            <h2>Seja bem-vindo</h2>
+            <img src="{% static '/img/vulcao.jpg' %}">
+            <p>Bem-vindo ao Vulcano, seu site de controle de estoques
+                Aqui você pode gerenciar seu estoque, agilizando processos, <br>
+                tendo uma visibilidade de forma eficiente e eficaz.
+            </p>
+        </div>
+    </div>
+</section>
+<script>
   let sidebar = document.querySelector(".sidebar");
   let closeBtn = document.querySelector("#btn");
   let searchBtn = document.querySelector(".bx-search");
@@ -108,7 +94,8 @@
      closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
    }
   }
-  </script>
+
+</script>
 </body>
 </html>
  

@@ -1,98 +1,87 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en" dir="ltr">
-  <head>
+<head>
     <meta charset="UTF-8">
     <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
-    <link rel="stylesheet" href="styyle.css">
+    <link rel="stylesheet" href="{% static 'styles/styyle.css' %}">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 <body>
-  <div class="sidebar">
+<div class="sidebar">
     <div class="logo-details">
-      <i class='bx bxs-rocket'></i>
+        <i class='bx bxs-rocket'></i>
         <div class="logo_name">Vulcano</div>
-        <i class='bx bx-menu' id="btn" ></i>
+        <i class='bx bx-menu' id="btn"></i>
     </div>
     <ul class="nav-list">
-      <li>
-          <i class='bx bx-search' ></i>
-         <input type="text" placeholder="Pesquisar...">
-         <span class="tooltip">Pesquisar</span>
-      </li>
-      <li>
-        <a href="cardapio.html">
-        <i class='bx bxs-food-menu'></i>
-          <span class="links_name">Cárdapio</span>
-        </a>
-         <span class="tooltip">Cárdapio</span>
-      </li>
-     <li>
-       <a href="estoque.html">
-         <i class='bx bx-pie-chart-alt-2' ></i>
-         <span class="links_name">Estoque</span>
-       </a>
-       <span class="tooltip">Estoque</span>
-     </li>
-     
-     <li>
-       <a href="carrinho.html">
-         <i class='bx bx-cart-alt' ></i>
-         <span class="links_name">Carrinho</span>
-       </a>
-       <span class="tooltip">Carrinho</span>
-     </li>
-     <li>
-        <a href="cadastro.html">
-        <i class='bx bx-plus-circle'></i>
-          <span class="links_name">Cadastrar Produto</span>
-        </a>
-        <span class="tooltip">Cadastrar Produto</span>
-      </li>
-      <li>
-        <a href="visualizcao.html">
-          <i class='bx bx-show'></i>
-            <span class="links_name">Visualizar produto</span>
-          </a>
-          <span class="tooltip">Visualizar produto</span>
+        <li>
+            <i class='bx bx-search'></i>
+            <input type="text" placeholder="Pesquisar...">
+            <span class="tooltip">Pesquisar</span>
         </li>
-     <li class="profile">
-         <div class="profile-details">
-           <img src="img/vulcao.png" alt="profileImg">
-             <div class="name">Doce Guetto
-           </div>
-         </div>
-         <a href="#">
-         <i class='bx bx-log-out' id="log_out" ></i>
-         <span class="links_name">Sair</span>
-        </a>
-        <span class="tooltip">Sair</span>
-      </li>
-     </li>
+        <li>
+            <a href="/cardapio/">
+                <i class='bx bxs-food-menu'></i>
+                <span class="links_name">Cárdapio</span>
+            </a>
+            <span class="tooltip">Cárdapio</span>
+        </li>
+        <li>
+            <a href="/estoque/">
+                <i class='bx bx-pie-chart-alt-2'></i>
+                <span class="links_name">Estoque</span>
+            </a>
+            <span class="tooltip">Estoque</span>
+        </li>
+
+        <li>
+            <a href="carrinho.html">
+                <i class='bx bx-cart-alt'></i>
+                <span class="links_name">Carrinho</span>
+            </a>
+            <span class="tooltip">Carrinho</span>
+        </li>
+        <li class="profile">
+            <div class="profile-details">
+                <img src="{% static 'img/vulcao.png' %}" alt="profileImg">
+                <div class="name">Doce Guetto
+                </div>
+            </div>
+            <a href="#">
+                <i class='bx bx-log-out' id="log_out"></i>
+                <span class="links_name">Sair</span>
+            </a>
+            <span class="tooltip">Sair</span>
+        </li>
     </ul>
-  </div>
-  <section class="home-section">
+</div>
+<section class="home-section">
     <div class="col-8 m-auto pt-2 pb-2 text-center">
-      <h1>Cadastrar</h1>
-  </div>
+        <h1>Cadastrar</h1>
+    </div>
 
-  <div class="col-8 m-auto pt-3 pb-2 text-center">
-      <a href="/" class="btn btn-info">Voltar</a>
-  </div>
+    <div class="col-8 m-auto pt-3 pb-2 text-center">
+        <a href="/estoque/" class="btn btn-primary">Voltar</a>
+    </div>
 
-  <div class="col-8 m-auto pt-4 pb-2 text-center">
-      <form name="form" id="form" action="{% if db %}/update/{{db.id}}/{%else%}/create/{% endif %}" method="post">
-          {% csrf_token %}
-          <div class="form-group mt-4">Nome: {{form.nome_produto}}</div>
-          <div class="form-group mt-4">Categoria: {{form.categoria_produto}}</div>
-          <div class="form-group mt-4">Quantidade: {{form.quant_produto}}</div>
-          <div class="form-group mt-4">Vencimento: {{form.data_vencimento}}</div>
-          <input type="submit" class="btn btn-success" value="Salvar">
-      </form>
-  </div>s
-  </section>
-  <script>
+    <div class="col-8 m-auto pt-4 pb-2 text-center">
+        <form name="form" id="form" action="{% if db %}/update/{{db.id}}/{%else%}/create/{% endif %}" method="post">
+            {% csrf_token %}
+            <div class="form-group mt-4">Nome: {{form.nome_produto}}</div>
+            <div class="form-group mt-4">Categoria: {{form.categoria_produto}}</div>
+            <div class="form-group mt-4">Quantidade: {{form.quant_produto}}</div>
+            <div class="form-group mt-4">Vencimento: {{form.data_vencimento}}</div>
+            <input type="submit" class="btn btn-success" value="Salvar">
+        </form>
+    </div>
+</section>
+<script>
   let sidebar = document.querySelector(".sidebar");
   let closeBtn = document.querySelector("#btn");
   let searchBtn = document.querySelector(".bx-search");
@@ -115,7 +104,8 @@
      closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
    }
   }
-  </script>
+
+</script>
 </body>
 </html>
  
