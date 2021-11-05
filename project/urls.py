@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from app.views import login, home, estoque, cardapio, form, create, view, edit, update, delete
+from app.views import login, home, estoque, cardapio, carrinho, form, create, view, edit, update, delete
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -9,6 +9,7 @@ urlpatterns = [
     path('login/', login, name='login'),
     path('estoque/', estoque, name='estoque'),
     path('cardapio/', cardapio, name='cardapio'),
+    path('carrinho/', carrinho, name='carrinho'),
     path('cadastro/', form, name='form'),
     path('create/', create, name='create'),
     path('view/<int:pk>/', view, name='view'),

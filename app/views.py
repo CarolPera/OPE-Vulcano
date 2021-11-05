@@ -25,6 +25,12 @@ def cardapio(request):
     return render(request, 'cardapio.html')
 
 
+def carrinho(request):
+    data = {}
+    data['db'] = Produtos.objects.all()
+    return render(request, 'carrinho.html')
+
+
 def form(request):
     data = {}
     data['form'] = ProdutosForm
