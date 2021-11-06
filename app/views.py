@@ -3,23 +3,45 @@ from app.forms import ProdutosForm
 from app.models import Produtos
 
 
+def login(request):
+    return render(request, 'login.html')
+
+
 def home(request):
     data = {}
     data['db'] = Produtos.objects.all()
     return render(request, 'index.html', data)
 
 
+def estoque(request):
+    data = {}
+    data['db'] = Produtos.objects.all()
+    return render(request, 'estoque.html', data)
+
+
+def cardapio(request):
+    data = {}
+    data['db'] = Produtos.objects.all()
+    return render(request, 'cardapio.html')
+
+
+def carrinho(request):
+    data = {}
+    data['db'] = Produtos.objects.all()
+    return render(request, 'carrinho.html')
+
+
 def form(request):
     data = {}
     data['form'] = ProdutosForm
-    return render(request, 'form.html', data)
+    return render(request, 'cadastro.html', data)
 
 
 def create(request):
     form = ProdutosForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('home')
+        return redirect('estoque')
 
 
 def view(request, pk):
@@ -32,7 +54,7 @@ def edit(request, pk):
     data = {}
     data['db'] = Produtos.objects.get(pk=pk)
     data['form'] = ProdutosForm(instance=data['db'])
-    return render(request, 'form.html', data)
+    return render(request, 'cadastro.html', data)
 
 
 def update(request, pk):
@@ -41,10 +63,10 @@ def update(request, pk):
     form = ProdutosForm(request.POST or None, instance=data['db'])
     if form.is_valid():
         form.save()
-        return redirect('home')
+        return redirect('estoque')
 
 
 def delete(request, pk):
     db = Produtos.objects.get(pk=pk)
     db.delete()
-    return redirect('home')
+    return redirect('estoque')

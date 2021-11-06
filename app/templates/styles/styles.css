@@ -1,0 +1,98 @@
+body {
+    background-image: url(../img/boolos.jpg);
+    background-size: 100%;
+    background-position: center; 
+    
+    
+}
+p {
+    color:#fff
+    font-size: 30px;
+    text-align: center;
+    
+}
+
+#menu {
+    margin-top: 20px;
+    background-color: #C2984C;
+    border-radius: 2px;
+    margin-bottom: 80px;
+
+}
+
+#menu ul {
+    list-style: none;
+    text-align: center;
+
+}
+
+#menu ul li {
+    display: inline;
+
+}
+
+#menu ul li a {
+    padding: 12px 10px;
+    display: inline-block;
+    font-size: 22px;
+    background-color: #EDEDEDED;
+    color: 333;
+    text-decoration: none;
+    border-radius: 5px;
+
+}
+
+#menu ul li a:hover {
+    background-color: #C2984C;
+    color: #fff;
+
+}
+
+#cardapio {
+    display:inline-block;
+    flex-direction:column;
+    justify-content:block;
+    margin-bottom: 80px;
+    
+}
+
+#cardapio img{
+    padding: 5px;
+    width: 200px;
+    width: 170px;
+    border-radius: 50px;
+
+}
+
+#item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.808);  
+    margin: 10px;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+#item p {
+font-size: 14px;
+
+}
+
+#item button {
+    background-color: #dc143c;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+
+}
+
+#item button:hover{
+
+    background-color: #f74b6d;
+}

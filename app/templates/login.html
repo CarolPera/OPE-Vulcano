@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <script defer src="./script.js"></script>
+  <link rel="stylesheet" href="{% static 'styles/logiin.css' %}">
+  <script defer src="{% static 'styles/script.js' %}"></script>
   <title>Login</title>
-</head>
+</head>s
 <body>
   <main class="login">
     <div class="login__container">
@@ -16,7 +17,7 @@
         <span class="login__input-border"></span>
         <input class="login__input" type="password" placeholder="senha"/>
         <span class="login__input-border"></span>
-        <button class="login__submit">Login</button>
+        <button class="login__submit" href="/">Login</button>
         <a class="login__reset" href="#">Esqueceu a senha?</a>
       </form>
     </div>

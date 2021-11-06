@@ -21,7 +21,7 @@
 - 1º : No CMD criar a maquina virtual dentro da pasta do projeto (OPE-Vulcano) -> `python -m venv venv`
 - 2º : Ir até a pasta `Scripts` dentro da pasta `venv`-> `cd venv/Scripts` depois ativar a venv-> `activate`
 - 3º : Voltar a raiz do projeto -> 2x `cd ..` e instalar o Django -> `pip install django`
-- 3º : Voltar a raiz do projeto -> 2x `cd ..` e instalar o Django -> `pip install mysqlclient-1.4.6-cp39-cp39-win_amd64.whl`
+- 3º : Voltar a raiz do projeto -> 2x `cd ..` e instalar o Django -> `pip install mysqlclient-1.4.6-cp37-cp37m-win32.whl`
 - 4º : Fazer a migração do banco de dados caso tenha atualizações pendentes -> `python manage.py migrate`
 - 5º : Rodar o servidor local -> `python manage.py runserver`
 - 6º : Acessar a url `localhost:8000`

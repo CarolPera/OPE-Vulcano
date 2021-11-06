@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="{% static 'styles/styyle.css' %}">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -63,19 +60,77 @@
     </ul>
 </div>
 <section class="home-section">
-    <div class="col-8 m-auto pt-2 pb-2 text-center">
-        <h1>Visualização</h1>
-    </div>
-
-    <div class="col-8 m-auto pt-3 pb-2 text-center">
-        <a href="/estoque/" class="btn btn-primary">Voltar</a>
-    </div>
-
-    <div class="col-8 m-auto pt-4 pb-2 text-center">
-        <strong>Nome: </strong>{{db.nome_produto}}<br>
-        <strong>Categoria: </strong>{{db.categoria_produto}}<br>
-        <strong>Quantidade: </strong>{{db.quant_produto}}<br>
-        <strong>Data de Vencimento: </strong>{{db.data_vencimento}}<br>
+    <div id="cardapio">
+        <center>
+        <div id="item-kit">
+            <h2>Kit Festa</h2>
+            <img src="{% static 'img/festa2.jpeg' %}" >
+            <p>Festa na caixa (serve até 3 pessoas)<br>
+                500G Bolo, 10 Bomboms, 24 Salgados, <br>
+                2 Refrigerantes 350ML,Guardanapos, <br>
+                Foto com dedicatória.
+            <h1>R$ 150,00</h1>
+            <button>Carrinho</button>
+        </div>
+        <div id="item-bolo-ameixa">
+            <h2>Bolo de Ameixa</h2>
+            <img src="{% static 'img/ameixa.jpeg' %}">
+            <p>Doce de leite com ameixa( P 16Kg) <br>
+                Ingredientes: <br>
+                Ovos, Açucar, Leite, <br>
+                Manteiga, Farinha de trigo, Fermento químico. <br>
+                Leite condensado, Creme de leite ,<br>
+                Ameixas-pretas sem caroço, Gelatina em pó incolor.
+            </p>
+            <h1>R$ 80,00</h1>
+            <button>Carrinho</button>
+        </div>
+        <div id="item-bolo-belga">
+            <h2>Bolo Belga</h2>
+            <img src="{% static 'img/belga.jpeg' %}">
+            <p>Belga com cobertura de ganache (P 1,5KG)br>
+                Barra de chocolate belga, Açucar, Leite <br>
+                Ovos, Manteiga, Farinha de trigo <bR>
+                Chocolate em pó, Leite condensado
+            </p>
+            <h1>R$ 70,00</h1>
+            <button>Carrinho</button>
+        </div>
+        <div id="item-kit-kat">
+            <h2>Bolo Kit Kat</h2>
+            <img src="{% static 'img/mms.jpeg' %}">
+            <p>Famoso Bolo de Kit Kat (PP 1,3Kg)<br>
+                Leite, Ovos, Margarina, Açucar,<br>
+                Chocolate em pó, Farinha de trigo,<br>
+                Fermento químico em pó, Leite condensado,<br>
+                Creme de leite, KitKat.
+            </p>
+            <h1>R$ 60,00</h1>
+            <button>Carrinho</button>
+        </div>
+        <div id="item-ferrero-rocher">
+            <h2>Bolo Ferrero Rocher</h2>
+            <img src="{% static 'img/ferreroroche.jpeg' %}">
+            <p>Saboroso Bolo de Ferrero Rocher ( M 1,8Kg )<br>
+                Ovos, Açucar, Barra de chocolate, Nutella,<br>
+                extrato de baunulha, Creme de leite,<br>
+                Farinha de trigo, Avelãs, Fermento químico,<br>
+                Bomboms Ferrero Rocher.
+            </p>
+            <h1>R$ 100,00</h1>
+            <button>Carrinho</button>
+        </div>
+        <div id="item">
+            <h2>Bolo Personalizado</h2>
+            <img src="{% static 'img/bolopersonalizado.jpeg' %}">
+            <p>Peça seu Bolo Personalizado<br>
+                Açucar, Farinha de trigo, margarina,<br>
+                Ovos, Leite, Fermento em pó,
+            </p>
+            <h1>A partir de R$ 55,00</h1>
+            <button>Carrinho</button>
+        </div>
+        </center>
     </div>
 </section>
 <script>
@@ -102,7 +157,9 @@
    }
   }
 
+
+
 </script>
 </body>
 </html>
- 
+

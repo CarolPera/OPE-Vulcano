@@ -1,13 +1,13 @@
 :root {
-    --input-linear: linear-gradient(120deg, #000000, #fa1010);
+    --input-linear: linear-gradient(120deg, #f5c98c, #b87a07da);
     --input-error: red;
-    --button-linear: linear-gradient(120deg, #f00b0b, #cb5b00, #000000);
-    --button-disabled: #acacac;
+    --button-linear: linear-gradient(120deg, #b87a07da, #5f4b26, #b87a07da);
+    --button-disabled: #ec0404;
     --button-success: rgb(18, 151, 107);
-    --white: #fff;
+    --white: rgba(240, 186, 124, 0.63);
     --black: #303030;
-    --gray: #929292;
-    --light-gray: #cfcfcf;
+    --gray: #000000;
+    --light-gray: #000000;
     --border-height: 1px;
   }
   
