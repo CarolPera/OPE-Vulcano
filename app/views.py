@@ -70,3 +70,15 @@ def delete(request, pk):
     db = Produtos.objects.get(pk=pk)
     db.delete()
     return redirect('estoque')
+
+def entrada(request, pk):
+    data = {}
+    data['db'] = Produtos.objects.get(pk=pk)
+    data['form'] = ProdutosForm(instance=data['db'])
+    return render(request, 'cadastro-entrada.html', data)
+
+def saida(request, pk):
+    data = {}
+    data['db'] = Produtos.objects.get(pk=pk)
+    data['form'] = ProdutosForm(instance=data['db'])
+    return render(request, 'cadastro-saida.html', data)

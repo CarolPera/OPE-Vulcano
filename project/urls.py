@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from app.views import login, home, estoque, cardapio, carrinho, form, create, view, edit, update, delete
+from app.views import login, home, estoque, cardapio, carrinho, form, create, view, edit, update, delete, entrada, saida
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -16,4 +16,6 @@ urlpatterns = [
     path('edit/<int:pk>/', edit, name='edit'),
     path('update/<int:pk>/', update, name='update'),
     path('delete/<int:pk>/', delete, name='delete'),
+    path('estoque/entrada/<int:pk>/', entrada, name='entrada'),
+    path('estoque/saida/<int:pk>/', saida, name='saida'),
 ] + static('/', document_root='templates/')

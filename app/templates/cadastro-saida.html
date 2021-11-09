@@ -10,6 +10,7 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -63,43 +64,21 @@
 </div>
 <section class="home-section">
     <div class="col-8 m-auto pt-2 pb-2 text-center">
-        <h1>Produtos em Estoque</h1>
+        <h1>Saida de Produto</h1>
     </div>
+
     <div class="col-8 m-auto pt-3 pb-2 text-center">
-        <a href="/cadastro/" class="btn btn-success">Cadastrar Produto</a>
+        <a href="/estoque/" class="btn btn-primary">Voltar</a>
     </div>
 
     <div class="col-8 m-auto pt-4 pb-2 text-center">
-        <table class="table">
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Categoria</th>
-                <th scope="col">Quantidade</th>
-                <th scope="col">Data de Vencimento</th>
-                <th scope="col">Ações</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for dbs in db %}
-            <tr>
-                <th>{{dbs.id}}</th>
-                <td>{{dbs.nome_produto}}</td>
-                <td>{{dbs.categoria_produto}}</td>
-                <td>{{dbs.quant_produto}}</td>
-                <td>{{dbs.data_vencimento}}</td>
-                <td>
-                    <a href="/view/{{dbs.id}}/" class="btn btn-dark">Abrir</a>
-                    <a href="/edit/{{dbs.id}}/" class="btn btn-primary">Edit</a>
-                    <a href="/delete/{{dbs.id}}/" class="btn btn-danger">Del</a>
-                    <a href="/estoque/cadastro-entrada/{{dbs.id}}/" class="btn btn-dark">Entrada de Produto</a>
-                    <a href="/estoque/cadastro-saida/{{dbs.id}}/" class="btn btn-dark">Saida de Produto</a>
-                </td>
-            </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+        <form name="form-saida" id="form-saida" action="update" method="put">
+            {% csrf_token %}
+            <div class="form-group mt-4">Nome: {{form.nome_produto}}</div>
+            <div class="form-group mt-4">Quantidade atual: {{form.quant_produto}}</div>
+            <div class="form-group mt-4">Quantidade de saida: {{form.quant_produto}}</div>
+            <input type="submit" class="btn btn-success" value="Salvar">
+        </form>
     </div>
 </section>
 <script>
@@ -128,5 +107,5 @@
 
 </script>
 </body>
-</html> 
+</html>
  
