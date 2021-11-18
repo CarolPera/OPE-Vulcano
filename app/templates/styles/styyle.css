@@ -252,8 +252,8 @@
 
 
 #cardapio {
-  display: colum;
-  flex-direction: row;
+  display: grid;
+  flex-direction: grid;
   justify-content: center;       
 }
 
@@ -262,7 +262,7 @@ padding: 5px;
 width: 300px;
 width: 200px;
 border-radius: 30px;
-display:center;
+display:grid;
 
 }
 
