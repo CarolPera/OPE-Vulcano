@@ -74,11 +74,11 @@
     <div class="col-8 m-auto pt-4 pb-2 text-center">
         <form name="form" id="form" action="{% if db %}/update/{{db.id}}/{%else%}/create/{% endif %}" method="post">
             {% csrf_token %}
+            
             <div class="form-group mt-4">Nome: {{form.nome_produto}}</div>
-            <div class="form-group mt-4">Categoria: {{form.categoria_produto}}</div>
             <div class="form-group mt-4">Quantidade: {{form.quant_produto}}</div>
-            <div class="form-group mt-4">Vencimento: {{form.data_vencimento}}</div>
             <input type="submit" class="btn btn-success" value="Salvar">
+        
         </form>
     </div>
 </section>
