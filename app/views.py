@@ -74,11 +74,12 @@ def delete(request, pk):
 def entrada(request, pk):
     data = {}
     data['db'] = Produtos.objects.get(pk=pk)
-    data['form'] = ProdutosForm(instance=data['db'])
     return render(request, 'cadastro-entrada.html', data)
+
+# def calcEntrada(request, pk)
+
 
 def saida(request, pk):
     data = {}
     data['db'] = Produtos.objects.get(pk=pk)
-    data['form'] = ProdutosForm(instance=data['db'])
     return render(request, 'cadastro-saida.html', data)

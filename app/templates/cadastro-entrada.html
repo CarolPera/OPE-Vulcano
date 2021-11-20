@@ -70,16 +70,22 @@
     <div class="col-8 m-auto pt-3 pb-2 text-center">
         <a href="/estoque/" class="btn btn-primary">Voltar</a>
     </div>
+
     {% csrf_token %}
     <div class="col-8 m-auto pt-4 pb-2 text-center">
         <strong>Nome: </strong>{{db.nome_produto}}<br>
+        <strong>Categoria: </strong>{{db.categoria_produto}}<br>
         <strong>Quantidade: </strong>{{db.quant_produto}}<br>
-        <form name="form-entrada" id="form-entrada" action="/update/{{db.id}}/" method="post">
-            <input type="hidden" name="_method" value="put" />
-            <div class="form-group mt-4">Quantidade de entrada:</div>
-            <input type="submit" class="btn btn-success" value="Salvar">
-        </form>
     </div>
+
+    <div class="col-8 m-auto pt-4 pb-2 text-center">
+<!--        <form name="form" id="form" action="{% if db %}/update/{{db.id}}/{%else%}/create/{% endif %}" method="post">-->
+<!--            {% csrf_token %}-->
+<!--            <div class="form-group mt-4">Quantidade de entrada: {{form.quant_produto}}</div>-->
+<!--            <input type="submit" class="btn btn-success" value="Salvar">-->
+
+<!--        </form>-->
+<!--    </div>-->
 </section>
 <script>
   let sidebar = document.querySelector(".sidebar");
