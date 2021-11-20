@@ -64,26 +64,24 @@
 </div>
 <section class="home-section">
     <div class="col-8 m-auto pt-2 pb-2 text-center">
-        <h1>Entrada de Produto</h1>
+        <h1>Registrar entrada: {{db.nome_produto}}</h1>
     </div>
 
     <div class="col-8 m-auto pt-3 pb-2 text-center">
         <a href="/estoque/" class="btn btn-primary">Voltar</a>
     </div>
 
-    {% csrf_token %}
     <div class="col-8 m-auto pt-4 pb-2 text-center">
         <strong>Nome: </strong>{{db.nome_produto}}<br>
         <strong>Categoria: </strong>{{db.categoria_produto}}<br>
-        <strong>Quantidade: </strong>{{db.quant_produto}}<br>
+        <strong>Quantidade Atual: </strong>{{db.quant_produto}}<br>
     </div>
 
-    <div class="col-8 m-auto pt-4 pb-2 text-center">
-<!--        <form name="form" id="form" action="{% if db %}/update/{{db.id}}/{%else%}/create/{% endif %}" method="post">-->
+<!--    <div class="col-8 m-auto pt-4 pb-2 text-center">-->
+<!--        <form name="formEntrada" id="formEntrada" action="/create-movimento/" method="post">-->
 <!--            {% csrf_token %}-->
-<!--            <div class="form-group mt-4">Quantidade de entrada: {{form.quant_produto}}</div>-->
-<!--            <input type="submit" class="btn btn-success" value="Salvar">-->
-
+<!--            <div class="form-group mt-4">Quantidade de Entrada: {{formEntrada.quantidade}}</div>-->
+<!--            <input type="submit" class="btn btn-success" value="Adicionar">-->
 <!--        </form>-->
 <!--    </div>-->
 </section>

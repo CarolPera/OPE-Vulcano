@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from app.forms import ProdutosForm
+from django.shortcuts import render, redirect, get_object_or_404
+from app.forms import ProdutosForm, MovimentoDeEstoqueForm
 from app.models import Produtos
 
 
@@ -44,6 +44,20 @@ def create(request):
         return redirect('estoque')
 
 
+def createMovimentoEntrada(request):
+    formEntrada = MovimentoDeEstoqueForm(request.POST or None)
+    if formEntrada.is_valid():
+        formEntrada.save()
+        return redirect('estoque')
+
+
+def createMovimentoSaida(request):
+    formSaida = MovimentoDeEstoqueForm(request.POST or None)
+    if formSaida.is_valid():
+        formSaida.save()
+        return redirect('estoque')
+
+
 def view(request, pk):
     data = {}
     data['db'] = Produtos.objects.get(pk=pk)
@@ -71,10 +85,19 @@ def delete(request, pk):
     db.delete()
     return redirect('estoque')
 
+
 def entrada(request, pk):
     data = {}
     data['db'] = Produtos.objects.get(pk=pk)
+    data['form'] = ProdutosForm(instance=data['db'])
     return render(request, 'cadastro-entrada.html', data)
+
+    # formEntrada = MovimentoDeEstoqueForm()
+    #
+    # if request.method == 'POST':
+    #     return redirect('estoque')
+    # else:
+    #     return render(request, 'cadastro-entrada.html')
 
 # def calcEntrada(request, pk)
 
@@ -82,4 +105,5 @@ def entrada(request, pk):
 def saida(request, pk):
     data = {}
     data['db'] = Produtos.objects.get(pk=pk)
+    data['form'] = ProdutosForm(instance=data['db'])
     return render(request, 'cadastro-saida.html', data)
