@@ -13,7 +13,7 @@
   top: 0;
   height: 100%;
   width: 78px;
-  background: #fc3232;
+  background: #969696;
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
@@ -271,7 +271,7 @@ display: flex;
 flex-direction: column;
 text-align: center;
 color: #fff;
-background-color: rgba(231, 6, 6, 0.85);
+background-color: rgba(150, 150, 150, 0.85);
 margin: 10px;
 border-radius: 5px;
 padding:20px;
