@@ -46,6 +46,20 @@
             </a>
             <span class="tooltip">Carrinho</span>
         </li>
+        <li>
+            <a href="/carrinho/">
+                <i class='bx bx-cart-alt'></i>
+                <span class="links_name">Vendas</span>
+            </a>
+            <span class="tooltip">Vendas</span>
+        </li>
+        <li>
+            <a href="/carrinho/">
+                <i class='bx bx-cart-alt'></i>
+                <span class="links_name">Compras</span>
+            </a>
+            <span class="tooltip">Compras</span>
+        </li>
         <li class="profile">
             <div class="profile-details">
                 <img src="{% static 'img/vulcao.png' %}" alt="profileImg">
@@ -73,6 +87,16 @@
         <strong>Nome: </strong>{{db.nome_produto}}<br>
         <strong>Categoria: </strong>{{db.categoria_produto}}<br>
         <strong>Quantidade Atual: </strong>{{db.quant_produto}}<br>
+    </div>
+
+    <div class="col-8 m-auto pt-4 pb-2 text-center">
+        <form name="form" id="form" action="{% if db %}/update/{{db.id}}/{%else%}/create/{% endif %}" method="post">
+            {% csrf_token %}
+
+            <div class="form-group mt-4">Quantidade de saida: {{form.quant_produto}}</div>
+            <input type="submit" class="btn btn-success" value="Salvar">
+
+        </form>
     </div>
 </section>
 <script>
