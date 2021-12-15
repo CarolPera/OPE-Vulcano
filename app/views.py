@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from app.forms import ProdutosForm, MovimentoDeEstoqueForm
-from app.models import Produtos
+from app.forms import ProdutosForm, MovimentoDeEstoqueForm, VendasForm
+from app.models import Produtos, Vendas
 
 
 def login(request):
@@ -11,10 +11,8 @@ def home(request):
     return render(request, 'index.html')
 
 
-def estoque(request):
-    data = {}
-    data['db'] = Produtos.objects.all()
-    return render(request, 'estoque.html', data)
+def carrinho(request):
+    return render(request, 'carrinho.html')
 
 
 def cardapio(request):
@@ -23,10 +21,10 @@ def cardapio(request):
     return render(request, 'cardapio.html')
 
 
-def carrinho(request):
+def estoque(request):
     data = {}
     data['db'] = Produtos.objects.all()
-    return render(request, 'carrinho.html')
+    return render(request, 'estoque.html', data)
 
 
 def form(request):
@@ -39,20 +37,6 @@ def create(request):
     form = ProdutosForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('estoque')
-
-
-def createMovimentoEntrada(request):
-    formEntrada = MovimentoDeEstoqueForm(request.POST or None)
-    if formEntrada.is_valid():
-        formEntrada.save()
-        return redirect('estoque')
-
-
-def createMovimentoSaida(request):
-    formSaida = MovimentoDeEstoqueForm(request.POST or None)
-    if formSaida.is_valid():
-        formSaida.save()
         return redirect('estoque')
 
 
@@ -84,20 +68,25 @@ def delete(request, pk):
     return redirect('estoque')
 
 
+def createMovimentoEntrada(request):
+    formEntrada = MovimentoDeEstoqueForm(request.POST or None)
+    if formEntrada.is_valid():
+        formEntrada.save()
+        return redirect('estoque')
+
+
+def createMovimentoSaida(request):
+    formSaida = MovimentoDeEstoqueForm(request.POST or None)
+    if formSaida.is_valid():
+        formSaida.save()
+        return redirect('estoque')
+
+
 def entrada(request, pk):
     data = {}
     data['db'] = Produtos.objects.get(pk=pk)
     data['form'] = ProdutosForm(instance=data['db'])
     return render(request, 'cadastro-entrada.html', data)
-
-    # formEntrada = MovimentoDeEstoqueForm()
-    #
-    # if request.method == 'POST':
-    #     return redirect('estoque')
-    # else:
-    #     return render(request, 'cadastro-entrada.html')
-
-# def calcEntrada(request, pk)
 
 
 def saida(request, pk):
@@ -105,3 +94,50 @@ def saida(request, pk):
     data['db'] = Produtos.objects.get(pk=pk)
     data['form'] = ProdutosForm(instance=data['db'])
     return render(request, 'cadastro-saida.html', data)
+
+
+def vendas(request):
+    data = {}
+    data['db'] = Vendas.objects.all()
+    return render(request, 'vendas.html', data)
+
+
+def formVendas(request):
+    data = {}
+    data['formVenda'] = VendasForm
+    return render(request, 'cadastroVenda.html', data)
+
+
+def createVenda(request):
+    form = VendasForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('vendas')
+
+
+def viewVenda(request, pk):
+    data = {}
+    data['db'] = Vendas.objects.get(pk=pk)
+    return render(request, 'viewVendas.html', data)
+
+
+def editVenda(request, pk):
+    data = {}
+    data['db'] = Vendas.objects.get(pk=pk)
+    data['formVenda'] = VendasForm(instance=data['db'])
+    return render(request, 'cadastroVenda.html', data)
+
+
+def updateVenda(request, pk):
+    data = {}
+    data['db'] = Vendas.objects.get(pk=pk)
+    form = VendasForm(request.POST or None, instance=data['db'])
+    if form.is_valid():
+        form.save()
+        return redirect('vendas')
+
+
+def deleteVenda(request, pk):
+    db = Vendas.objects.get(pk=pk)
+    db.delete()
+    return redirect('vendas')

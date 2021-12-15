@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.urls import path
 from app.views import login, home, estoque, cardapio, carrinho, form, create, view, edit, update, delete, entrada, \
-    saida, createMovimentoEntrada, createMovimentoSaida
+    saida, createMovimentoEntrada, createMovimentoSaida, vendas, formVendas, deleteVenda, updateVenda, editVenda, \
+    viewVenda, createVenda
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -21,4 +22,11 @@ urlpatterns = [
     path('delete/<int:pk>/', delete, name='delete'),
     path('entrada/<int:pk>/', entrada, name='entrada'),
     path('saida/<int:pk>/', saida, name='saida'),
+    path('vendas/', vendas, name='vendas'),
+    path('cadastro-vendas/', formVendas, name='formVenda'),
+    path('create-vendas/', createVenda, name='createVenda'),
+    path('view-vendas/<int:pk>/', viewVenda, name='viewVendas'),
+    path('edit-vendas/<int:pk>/', editVenda, name='editVenda'),
+    path('update-vendas/<int:pk>/', updateVenda, name='updateVenda'),
+    path('delete-vendas/<int:pk>/', deleteVenda, name='deleteVenda'),
 ] + static('/', document_root='templates/')
