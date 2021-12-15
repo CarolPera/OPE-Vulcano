@@ -11,10 +11,6 @@ def home(request):
     return render(request, 'index.html')
 
 
-def carrinho(request):
-    return render(request, 'carrinho.html')
-
-
 def cardapio(request):
     data = {}
     data['db'] = Produtos.objects.all()
