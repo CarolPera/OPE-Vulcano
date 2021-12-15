@@ -8,9 +8,7 @@ def login(request):
 
 
 def home(request):
-    data = {}
-    data['db'] = Produtos.objects.all()
-    return render(request, 'index.html', data)
+    return render(request, 'index.html')
 
 
 def estoque(request):

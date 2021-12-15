@@ -24,7 +24,7 @@ const init = () => {
             input.nextElementSibling.classList.remove('error');
         }
     }
-    
+
     const inputEmail = document.querySelector('input[type="email"]');
     const inputPassword = document.querySelector('input[type="password"]');
     const submitButton = document.querySelector('.login__submit');
@@ -36,14 +36,12 @@ const init = () => {
         submitButton.classList.remove('loading');
         submitButton.classList.remove('success');
         submitButton.classList.add('error');
-        submitButton.textContent = "Error :(";
     }
 
     const successHandler = () => {
         submitButton.classList.remove('loading');
         submitButton.classList.remove('error');
         submitButton.classList.add('success');
-        submitButton.textContent = "Sent! :)";
     }
 
     if(submitButton) {
@@ -65,9 +63,9 @@ const init = () => {
                 if (response.status !== 200) {
                     return errorHandler();
                 }
-                
+
                 successHandler();
-                
+
             }).catch(() => {
                 errorHandler();
             })
