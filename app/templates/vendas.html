@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <link rel="icon" type="imagex/png" href="{% static 'img/vulcao.png' %}">
     <link rel="stylesheet" href="{% static 'styles/styyle.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -41,7 +41,7 @@
             <span class="tooltip">Estoque</span>
         </li>
         <li>
-            <a href="/carrinho/">
+            <a href="/vendas/">
                 <i class='bx bx-credit-card'></i>
                 <span class="links_name">Vendas</span>
             </a>
@@ -70,23 +70,65 @@
 </div>
 <section class="home-section">
     <div class="col-8 m-auto pt-2 pb-2 text-center">
-        <h1>Cadastrar Produtos</h1>
+        <h1>Registro de Vendas</h1>
     </div>
-
     <div class="col-8 m-auto pt-3 pb-2 text-center">
-        <a href="/estoque/" class="btn btn-primary">Voltar</a>
+        <a href="/cadastro-vendas/" class="btn btn-success">Cadastrar Venda</a>
     </div>
 
     <div class="col-8 m-auto pt-4 pb-2 text-center">
-        <form name="form" id="form" action="{% if db %}/update/{{db.id}}/{%else%}/create/{% endif %}" method="post">
-            {% csrf_token %}
-            
-            <div class="form-group mt-4">Nome: {{form.nome_produto}}</div>
-            <div class="form-group mt-4">Categoria: {{form.categoria_produto}}</div>
-            <div class="form-group mt-4">Quantidade: {{form.quant_produto}}</div>
-            <input type="submit" class="btn btn-success" value="Salvar">
-        
-        </form>
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Data</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Forma de Pagamento</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for dbs in db %}
+            <tr>
+                <th>{{dbs.id}}</th>
+                <td>{{dbs.data}}</td>
+                <td>{{dbs.valor}}</td>
+                <td>{{dbs.forma_de_pagamento}}</td>
+                <td>{{dbs.descricao}}</td>
+                <td>
+                    <a href="/view-vendas/{{dbs.id}}/">
+                        <button type="button" class="btn btn-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"></path>
+                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path>
+                            </svg>
+                        </button>
+                    </a>
+                    <a href="/edit-vendas/{{dbs.id}}/">
+                        <button type="button" class="btn btn-success">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"></path>
+                                <path fill-rule="evenodd"
+                                      d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"></path>
+                            </svg>
+
+                        </button>
+                    </a>
+                    <a href="/delete-vendas/{{dbs.id}}/">
+                        <button type="button" class="btn btn-outline-danger">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"></path>
+                                <path fill-rule="evenodd"
+                                      d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"></path>
+                            </svg>
+                        </button>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
 </section>
 <script>
@@ -112,8 +154,7 @@
      closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
    }
   }
-
 </script>
 </body>
-</html>
+</html> 
  

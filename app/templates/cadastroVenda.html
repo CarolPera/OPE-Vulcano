@@ -41,7 +41,7 @@
             <span class="tooltip">Estoque</span>
         </li>
         <li>
-            <a href="/carrinho/">
+            <a href="/vendas/">
                 <i class='bx bx-credit-card'></i>
                 <span class="links_name">Vendas</span>
             </a>
@@ -70,20 +70,21 @@
 </div>
 <section class="home-section">
     <div class="col-8 m-auto pt-2 pb-2 text-center">
-        <h1>Cadastrar Produtos</h1>
+        <h1>Cadastrar Vendas</h1>
     </div>
 
     <div class="col-8 m-auto pt-3 pb-2 text-center">
-        <a href="/estoque/" class="btn btn-primary">Voltar</a>
+        <a href="/vendas/" class="btn btn-primary">Voltar</a>
     </div>
 
     <div class="col-8 m-auto pt-4 pb-2 text-center">
-        <form name="form" id="form" action="{% if db %}/update/{{db.id}}/{%else%}/create/{% endif %}" method="post">
+        <form name="formVenda" id="formVenda" action="{% if db %}/update-vendas/{{db.id}}/{%else%}/create-vendas/{% endif %}" method="post">
             {% csrf_token %}
             
-            <div class="form-group mt-4">Nome: {{form.nome_produto}}</div>
-            <div class="form-group mt-4">Categoria: {{form.categoria_produto}}</div>
-            <div class="form-group mt-4">Quantidade: {{form.quant_produto}}</div>
+            <div class="form-group mt-4">Data: {{formVenda.data}}</div>
+            <div class="form-group mt-4">Valor: {{formVenda.valor}}</div>
+            <div class="form-group mt-4">Forma de Pagamento: {{formVenda.forma_de_pagamento}}</div>
+            <div class="form-group mt-4">Descrição: {{formVenda.descricao}}</div>
             <input type="submit" class="btn btn-success" value="Salvar">
         
         </form>

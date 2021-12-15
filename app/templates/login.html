@@ -4,10 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="imagex/png" href="{% static 'img/vulcao.png' %}">
   <link rel="stylesheet" href="{% static 'styles/logiin.css' %}">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <script defer src="{% static 'styles/script.js' %}"></script>
-  <title>Login</title>
-</head>s
+  <title>Bem-Vindo!</title>
+</head>
 <body>
   <main class="login">
     <div class="login__container">
@@ -17,7 +21,8 @@
         <span class="login__input-border"></span>
         <input class="login__input" type="password" placeholder="senha"/>
         <span class="login__input-border"></span>
-        <button class="login__submit" href="/">Login</button>
+        <a  href="/home/" class="btn btn-success"> Login </a> <br>
+        <a  href="/home/" class="btn btn-primary">Cadastro</a>
         <a class="login__reset" href="#">Esqueceu a senha?</a>
       </form>
     </div>

@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="imagex/png" href="{% static 'img/vulcao.png' %}">
-    <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
     <link rel="stylesheet" href="{% static 'styles/styyle.css' %}">
-    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -14,7 +15,9 @@
 <div class="sidebar">
     <div class="logo-details">
         <i class='bx bxs-rocket'></i>
-        <div class="logo_name">Vulcano</div>
+        <div class="logo_name">
+            <a href="/home/" style="text-decoration:none"> Vulcano </a>
+        </div>
         <i class='bx bx-menu' id="btn"></i>
     </div>
     <ul class="nav-list">
@@ -37,13 +40,19 @@
             </a>
             <span class="tooltip">Estoque</span>
         </li>
-
         <li>
-            <a href="/carrinho/">
-                <i class='bx bx-cart-alt'></i>
-                <span class="links_name">Carrinho</span>
+            <a href="/vendas/">
+                <i class='bx bx-credit-card'></i>
+                <span class="links_name">Vendas</span>
             </a>
-            <span class="tooltip">Carrinho</span>
+            <span class="tooltip">Vendas</span>
+        </li>
+        <li>
+            <a href="/compras/">
+                <i class='bx bx-cart-alt'></i>
+                <span class="links_name">Compras</span>
+            </a>
+            <span class="tooltip">Compras</span>
         </li>
         <li class="profile">
             <div class="profile-details">
@@ -51,7 +60,7 @@
                 <div class="name">Doce Guetto
                 </div>
             </div>
-            <a href="#">
+            <a href="/">
                 <i class='bx bx-log-out' id="log_out"></i>
                 <span class="links_name">Sair</span>
             </a>
@@ -60,15 +69,24 @@
     </ul>
 </div>
 <section class="home-section">
-    <div id="carrinho">
-        <div id="item">
-            <h2>Carrinho "ANDAMENTO"</h2>
-            <center>
-                <img src="{% static '/img/vulcao.jpg' %}" style="width: 250px;height: 200px;">
-            </center>
-            <p>aqui sera nossa página de carrinho "AINDA EM ANDAMENTO"
-            </p>
-        </div>
+    <div class="col-8 m-auto pt-2 pb-2 text-center">
+        <h1>Cadastrar Compras</h1>
+    </div>
+
+    <div class="col-8 m-auto pt-3 pb-2 text-center">
+        <a href="/compras/" class="btn btn-primary">Voltar</a>
+    </div>
+
+    <div class="col-8 m-auto pt-4 pb-2 text-center">
+        <form name="formCompras" id="formCompras" action="{% if db %}/update-compras/{{db.id}}/{%else%}/create-compras/{% endif %}" method="post">
+            {% csrf_token %}
+            
+            <div class="form-group mt-4">Data: {{formCompras.data}}</div>
+            <div class="form-group mt-4">Valor: {{formCompras.valor}}</div>
+            <div class="form-group mt-4">Descrição: {{formCompras.descricao}}</div>
+            <input type="submit" class="btn btn-success" value="Salvar">
+        
+        </form>
     </div>
 </section>
 <script>

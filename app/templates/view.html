@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="imagex/png" href="{% static 'img/vulcao.png' %}">
-    <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
     <link rel="stylesheet" href="{% static 'styles/styyle.css' %}">
-    <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -17,7 +15,9 @@
 <div class="sidebar">
     <div class="logo-details">
         <i class='bx bxs-rocket'></i>
-        <div class="logo_name">Vulcano</div>
+        <div class="logo_name">
+            <a href="/home/" style="text-decoration:none"> Vulcano </a>
+        </div>
         <i class='bx bx-menu' id="btn"></i>
     </div>
     <ul class="nav-list">
@@ -40,13 +40,19 @@
             </a>
             <span class="tooltip">Estoque</span>
         </li>
-
         <li>
-            <a href="/carrinho/">
-                <i class='bx bx-cart-alt'></i>
-                <span class="links_name">Carrinho</span>
+            <a href="/vendas/">
+                <i class='bx bx-credit-card'></i>
+                <span class="links_name">Vendas</span>
             </a>
-            <span class="tooltip">Carrinho</span>
+            <span class="tooltip">Vendas</span>
+        </li>
+        <li>
+            <a href="/compras/">
+                <i class='bx bx-cart-alt'></i>
+                <span class="links_name">Compras</span>
+            </a>
+            <span class="tooltip">Compras</span>
         </li>
         <li class="profile">
             <div class="profile-details">
@@ -54,7 +60,7 @@
                 <div class="name">Doce Guetto
                 </div>
             </div>
-            <a href="#">
+            <a href="/">
                 <i class='bx bx-log-out' id="log_out"></i>
                 <span class="links_name">Sair</span>
             </a>
@@ -64,7 +70,7 @@
 </div>
 <section class="home-section">
     <div class="col-8 m-auto pt-2 pb-2 text-center">
-        <h1>Visualização</h1>
+        <h1>Visualizar: {{db.nome_produto}}</h1>
     </div>
 
     <div class="col-8 m-auto pt-3 pb-2 text-center">
@@ -73,6 +79,7 @@
 
     <div class="col-8 m-auto pt-4 pb-2 text-center">
         <strong>Nome: </strong>{{db.nome_produto}}<br>
+        <strong>Categoria: </strong>{{db.categoria_produto}}<br>
         <strong>Quantidade: </strong>{{db.quant_produto}}<br>
     </div>
 </section>

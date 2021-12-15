@@ -41,7 +41,7 @@
             <span class="tooltip">Estoque</span>
         </li>
         <li>
-            <a href="/carrinho/">
+            <a href="/vendas/">
                 <i class='bx bx-credit-card'></i>
                 <span class="links_name">Vendas</span>
             </a>
@@ -70,23 +70,18 @@
 </div>
 <section class="home-section">
     <div class="col-8 m-auto pt-2 pb-2 text-center">
-        <h1>Cadastrar Produtos</h1>
+        <h1>Visualizar Venda Registrada:</h1>
     </div>
 
     <div class="col-8 m-auto pt-3 pb-2 text-center">
-        <a href="/estoque/" class="btn btn-primary">Voltar</a>
+        <a href="/vendas/" class="btn btn-primary">Voltar</a>
     </div>
 
     <div class="col-8 m-auto pt-4 pb-2 text-center">
-        <form name="form" id="form" action="{% if db %}/update/{{db.id}}/{%else%}/create/{% endif %}" method="post">
-            {% csrf_token %}
-            
-            <div class="form-group mt-4">Nome: {{form.nome_produto}}</div>
-            <div class="form-group mt-4">Categoria: {{form.categoria_produto}}</div>
-            <div class="form-group mt-4">Quantidade: {{form.quant_produto}}</div>
-            <input type="submit" class="btn btn-success" value="Salvar">
-        
-        </form>
+        <strong>Data: </strong>{{db.data}}<br>
+        <strong>Valor: R$</strong>{{db.valor}}<br>
+        <strong>Forma de Pagamento: </strong>{{db.forma_de_pagamento}}<br>
+        <strong>Descrição: </strong>{{db.descricao}}<br>
     </div>
 </section>
 <script>
@@ -116,4 +111,3 @@
 </script>
 </body>
 </html>
- 
