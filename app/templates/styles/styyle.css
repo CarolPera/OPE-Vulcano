@@ -32,11 +32,16 @@
   transition: all 0.5s ease;
 }
 .sidebar .logo-details .logo_name{
-  color: #fff;
+  color:  #ffffff;
   font-size: 20px;
   font-weight: 600;
   opacity: 0;
   transition: all 0.5s ease;
+}
+.sidebar .logo-details .logo_name .a{
+    color: #ffffff;
+    text-decoration: none;
+    background-color: transparent;
 }
 .sidebar.open .logo-details .icon,
 .sidebar.open .logo-details .logo_name{
