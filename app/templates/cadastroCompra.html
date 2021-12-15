@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="imagex/png" href="{% static 'img/vulcao.png' %}">
-    <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
     <link rel="stylesheet" href="{% static 'styles/styyle.css' %}">
-    <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -70,26 +68,22 @@
 </div>
 <section class="home-section">
     <div class="col-8 m-auto pt-2 pb-2 text-center">
-        <h1>Registrar entrada: {{db.nome_produto}}</h1>
+        <h1>Cadastrar Compras</h1>
     </div>
 
     <div class="col-8 m-auto pt-3 pb-2 text-center">
-        <a href="/estoque/" class="btn btn-primary">Voltar</a>
+        <a href="/compras/" class="btn btn-primary">Voltar</a>
     </div>
 
     <div class="col-8 m-auto pt-4 pb-2 text-center">
-        <strong>Nome: </strong>{{db.nome_produto}}<br>
-        <strong>Categoria: </strong>{{db.categoria_produto}}<br>
-        <strong>Quantidade Atual: </strong>{{db.quant_produto}}<br>
-    </div>
-
-    <div class="col-8 m-auto pt-4 pb-2 text-center">
-        <form name="form" id="form" action="{% if db %}/update/{{db.id}}/{%else%}/create/{% endif %}" method="post">
+        <form name="formCompras" id="formCompras" action="{% if db %}/update-compras/{{db.id}}/{%else%}/create-compras/{% endif %}" method="post">
             {% csrf_token %}
-
-            <div class="form-group mt-4">Quantidade de entrada: + {{form.quant_produto}}</div>
+            
+            <div class="form-group mt-4">Data: {{formCompras.data}}</div>
+            <div class="form-group mt-4">Valor: {{formCompras.valor}}</div>
+            <div class="form-group mt-4">Descrição: {{formCompras.descricao}}</div>
             <input type="submit" class="btn btn-success" value="Salvar">
-
+        
         </form>
     </div>
 </section>

@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from app.views import login, home, estoque, cardapio, form, create, view, edit, update, delete, entrada, \
     saida, createMovimentoEntrada, createMovimentoSaida, vendas, formVendas, deleteVenda, updateVenda, editVenda, \
-    viewVenda, createVenda
+    viewVenda, createVenda, compras, formCompra, createCompra, viewCompra, editCompra, updateCompra, deleteCompra
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -28,4 +28,11 @@ urlpatterns = [
     path('edit-vendas/<int:pk>/', editVenda, name='editVenda'),
     path('update-vendas/<int:pk>/', updateVenda, name='updateVenda'),
     path('delete-vendas/<int:pk>/', deleteVenda, name='deleteVenda'),
+    path('compras/', compras, name='compras'),
+    path('cadastro-compras/', formCompra, name='formCompras'),
+    path('create-compras/', createCompra, name='createCompras'),
+    path('view-compras/<int:pk>/', viewCompra, name='viewCompras'),
+    path('edit-compras/<int:pk>/', editCompra, name='editCompras'),
+    path('update-compras/<int:pk>/', updateCompra, name='updateCompras'),
+    path('delete-compras/<int:pk>/', deleteCompra, name='deleteCompras'),
 ] + static('/', document_root='templates/')

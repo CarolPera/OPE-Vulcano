@@ -20,7 +20,7 @@ class VendasForm(ModelForm):
         fields = ['data', 'valor', 'forma_de_pagamento', 'descricao']
 
 
-class ComprassForm(ModelForm):
+class ComprasForm(ModelForm):
     class Meta:
         model = Compras
         fields = ['data', 'valor', 'descricao']

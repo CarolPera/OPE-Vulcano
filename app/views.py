@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from app.forms import ProdutosForm, MovimentoDeEstoqueForm, VendasForm
-from app.models import Produtos, Vendas
+from app.forms import ProdutosForm, MovimentoDeEstoqueForm, VendasForm, ComprasForm
+from app.models import Produtos, Vendas, Compras
 
 
 def login(request):
@@ -137,3 +137,50 @@ def deleteVenda(request, pk):
     db = Vendas.objects.get(pk=pk)
     db.delete()
     return redirect('vendas')
+
+
+def compras(request):
+    data = {}
+    data['db'] = Compras.objects.all()
+    return render(request, 'compras.html', data)
+
+
+def formCompra(request):
+    data = {}
+    data['formCompras'] = ComprasForm
+    return render(request, 'cadastroCompra.html', data)
+
+
+def createCompra(request):
+    form = ComprasForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('compras')
+
+
+def viewCompra(request, pk):
+    data = {}
+    data['db'] = Compras.objects.get(pk=pk)
+    return render(request, 'viewCompras.html', data)
+
+
+def editCompra(request, pk):
+    data = {}
+    data['db'] = Compras.objects.get(pk=pk)
+    data['formCompras'] = Compras(instance=data['db'])
+    return render(request, 'cadastroCompra.html', data)
+
+
+def updateCompra(request, pk):
+    data = {}
+    data['db'] = Compras.objects.get(pk=pk)
+    form = ComprasForm(request.POST or None, instance=data['db'])
+    if form.is_valid():
+        form.save()
+        return redirect('compras')
+
+
+def deleteCompra(request, pk):
+    db = Compras.objects.get(pk=pk)
+    db.delete()
+    return redirect('compras')
